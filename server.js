@@ -1,1 +1,1 @@
-console.log("server is active")
+console.log("server is active");
