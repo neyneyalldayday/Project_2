@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("User", {
+  User = sequelize.define("User", {
     email: {
       type: DataTypes.STRING,
       allowNNull: false,
