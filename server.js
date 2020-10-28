@@ -12,12 +12,18 @@ const db = require("./models");
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Static directory
 app.use(express.static("public"));
 
 // Routes
-require("./routes/api-routes")(app);
+// require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
+
 
 // Sync sequelize models then start Express App
 db.sequelize.sync().then(() => {
