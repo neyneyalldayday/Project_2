@@ -4,12 +4,18 @@
   "description": "a trading application",
   "main": "index.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "eslint": "^7.12.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
+<<<<<<< HEAD
+=======
+    "passport-local": "^1.0.0",
+>>>>>>> f79fcdfdb6eaee4dee5b6ad410ac99fe9996e5a8
     "sequelize": "^4.41.2"
   },
   "devDependencies": {},
