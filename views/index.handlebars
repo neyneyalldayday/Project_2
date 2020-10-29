@@ -2,25 +2,28 @@
 
 <div class="row">
 
-        
-            {{#each items}}
-            <div class="card items text" style="width: 18rem;">
-                <div class="image">
+
+    {{#each items}}
+    <div class="card items text fText" style="width: 18rem;">
+        <div class="image">
             <img src="/image/defImg.jpg" class="card-img-top" alt="stockImage">
-                </div>
-            <div class="card-body cardCol">
-                <h5 class="card-title">{{dataValues.itemName}}</h5>
-                <p>{{#if dataValues.replica}}Replica{{else}}Authentic{{/if}}</p>
+        </div>
+        <div class="card-body cardCol">
+            <h5 class="card-title uLine">{{dataValues.itemName}}</h5>
+            <p>{{#if dataValues.replica}}Replica{{else}}Authentic{{/if}}</p>
+            <div class="tBord">
                 <p class="card-text">{{dataValues.descript}}</p>
             </div>
-            <div class="card-body cardCol">
-                <a href="#" class="card-link">Bid</a>
-                <p>{{dataValues.highestBid}}</p>
-            </div>
-            </div>
-            {{/each}}
-        
-        
+        </div>
+        <div class="card-body cardCol">
+            
+            <p>Current bid: {{dataValues.highestBid}}</p>
+        </div>
+    </div>
+    {{/each}}
+
+
 </div>
-            <!--Return to top button-->
-        <button onclick="topFunction()" id="homeBtn" title="Go to top">Return to Top</button>
+<!--Return to top button-->
+<button onclick="topFunction()" id="homeBtn" class="submit text fText" title="Go to top">Return to Top</button>
+
