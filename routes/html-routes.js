@@ -1,18 +1,15 @@
-const path = require("path");
 
 module.exports = (app) => {
+
   app.get("/", (req, res) => {
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../publicsignup.html"));
+    res.render("index", res);
   });
-  app.get("/login" ,(req, res) => {
-    if (req, res) {
-      res.redirect("/members");
-    }
+
+  app.get("/sell", (req, res) => {
+    res.render("sell", res);
   });
-  app.get("/members" , isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+
+  app.get("/signup", (req, res) => {
+    res.render("signup", res);
   });
 };
