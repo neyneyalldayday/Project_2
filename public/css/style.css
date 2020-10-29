@@ -1,52 +1,100 @@
-.sidepanel {
-    height: 250px; /* Specify a height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
-  }
-  
-  /* The sidepanel links */
-  .sidepanel a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidepanel a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidepanel .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  /* Style the button that is used to open the sidepanel */
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-  }
-  
-  .openbtn:hover {
-    background-color: #444;
+* {
+  box-sizing: border-box;
+ }
+
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+.sidebar {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #571670;
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.25s; 
+}
+
+/*sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color: #111;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #ffeeed;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color:  #571670;
+  color: #ffeeed;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 30px 0px 30px 0px;
+}
+
+.openbtn:hover {
+  background-color: #ffeeed;
+  color: #571670;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+  .items {
+    margin: 25px;
+    
   }
 
- 
+.body {
+  background-color: #8c2427;
+}
+
+.cardCol {
+  background-color: #044f67;
+}
+
+.formCol {
+  background-color: #044f67;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.submit {
+  border-radius: 5px;
+  height: 50px;
+  width: 100px;
+  background-color: #571670;
+}
+
+.text {
+  font-family: 'Kosugi Maru', sans-serif;
+}

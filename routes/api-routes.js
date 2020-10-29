@@ -1,10 +1,11 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = (app) => {
  
-  app.get("/api/items.js", (req, res) => {
-    db.Items.findAll({}).then((dbItems) => {
-      res.json(dbItems);
+  app.get("/api/items", (req, res) => {
+    db.Item.findAll({}).then((dbItems) => {
+      res.render("index", {Items: dbItems});
     });
   });
 }; 
+

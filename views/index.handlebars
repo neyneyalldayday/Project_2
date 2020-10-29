@@ -1,31 +1,26 @@
 <div>{{>nav/nav-block}}</div>
 
 <div class="row">
-    <div class="col-md-6 column">
 
-        <ul class="items">
+        
             {{#each items}}
-            <li>
-                <p>{{item_name}}</p>
-                <p>{{descript}}</p>
-                <p>{{highest_bid}}</p>
-            </li>
+            <div class="card items text" style="width: 18rem;">
+                <div class="image">
+            <img src="/image/defImg.jpg" class="card-img-top" alt="stockImage">
+                </div>
+            <div class="card-body cardCol">
+                <h5 class="card-title">{{dataValues.itemName}}</h5>
+                <p>{{#if dataValues.replica}}Replica{{else}}Authentic{{/if}}</p>
+                <p class="card-text">{{dataValues.descript}}</p>
+            </div>
+            <div class="card-body cardCol">
+                <a href="#" class="card-link">Bid</a>
+                <p>{{dataValues.highestBid}}</p>
+            </div>
+            </div>
             {{/each}}
-        </ul>
-    </div>
-
+        
+        
 </div>
-
-<div class="card" style="width: 18rem;">
-    {{#each items}}
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{item_name}}</h5>
-        <p class="card-text">{{descript}}</p>
-    </div>
-    <div class="card-body">
-        <a href="#" class="card-link">Bid</a>
-        <p>{{highest_bid}}</p>
-    </div>
-    {{/each}}
-</div>
+            <!--Return to top button-->
+        <button onclick="topFunction()" id="homeBtn" title="Go to top">Return to Top</button>
