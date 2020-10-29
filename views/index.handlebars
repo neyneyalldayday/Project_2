@@ -1,6 +1,5 @@
-<header class="row">
+<div>{{>nav/nav-block}}</div>
 
-</header>
 <div class="row">
     <div class="col-md-6 column">
 
@@ -10,11 +9,23 @@
                 <p>{{item_name}}</p>
                 <p>{{descript}}</p>
                 <p>{{highest_bid}}</p>
-                </li>            
+            </li>
             {{/each}}
         </ul>
     </div>
 
 </div>
 
-
+<div class="card" style="width: 18rem;">
+    {{#each items}}
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{item_name}}</h5>
+        <p class="card-text">{{descript}}</p>
+    </div>
+    <div class="card-body">
+        <a href="#" class="card-link">Bid</a>
+        <p>{{highest_bid}}</p>
+    </div>
+    {{/each}}
+</div>

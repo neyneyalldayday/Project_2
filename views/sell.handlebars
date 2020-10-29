@@ -1,15 +1,18 @@
-
+<div>{{> nav/nav-block}}</div>
 <form>
     <div class="form-group">
         <label for="category">Category</label>
         <select class="form-control form-control-lg" id="category">
+            <option></option>
             <option>Weapon</option>
             <option>Armor</option>
         </select>
+        <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
     </div>
     <div class="form-group">
         <label for="itemType">Item Name</label>
         <select class="form-control form-control-lg" id="itemType">
+            <option></option>
             <option>Katana</option>
             <option>Naginata</option>
             <option>Yumi</option>
@@ -19,13 +22,16 @@
             <option>Tatami-Gusoku</option>
             <option>Hoate</option>
         </select>
+        <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
     </div>
     <div class="form-group">
         <label for="rep">Authentic or Replica</label>
         <select class="form-control form-control-lg" id="rep">
+            <option></option>
             <option>Authentic</option>
             <option>Replica</option>
         </select>
+        <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
     </div>
     <div class="form-group">
         <label for="description">Item description</label>
