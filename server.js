@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 // Set up Express to handle data parsing
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const exphbs = require("express-handlebars");
@@ -21,7 +21,6 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 // Routes
-// require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
 
