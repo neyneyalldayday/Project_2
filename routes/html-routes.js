@@ -16,3 +16,18 @@ module.exports = (app) => {
     res.render("signup", res);
   });
 };
+app.post("/sell", (req, res) => {
+  const { category, itemName, replica, descript, highestBid } = req.body;
+    
+  db.Item.create({
+    category,
+    itemName,
+    replica,
+    descript,
+    highestBid
+  })
+    .then(() => res.redirect("/"))
+    .catch(err => console.log(err));
+});
+
+

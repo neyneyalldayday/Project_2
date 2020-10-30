@@ -1,5 +1,6 @@
 // Dependencies
 const express = require("express");
+const bodyParser = require("body-parser");
 
 // Set up Express App
 const app = express();
@@ -18,6 +19,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Static directory
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
 // Routes
