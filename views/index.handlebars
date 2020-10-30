@@ -5,16 +5,15 @@
     <div class="col-md-6 column">
 
         <ul class="items">
-            {{#each items}}
+            {{#each Items}}
             <li>
-                <p>{{item_name}}</p>
-                <p>{{descript}}</p>
-                <p>{{highest_bid}}</p>
+                <p><h3>Item Name:</h3> {{dataValues.itemName}}</p>
+                <p><h3>Description:</h3> {{dataValues.descript}}</p>
+                <p><h3>Highest Bid:</h3>{{dataValues.highestBid}}</p>
                 </li>            
             {{/each}}
         </ul>
     </div>
 
 </div>
-
 
