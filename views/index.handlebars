@@ -5,7 +5,7 @@
 
     {{#each items}}
     <div class="card items text fText" style="width: 18rem;">
-        <div class="image">
+        <div class="image card-body cardCol">
             <img src="/image/defImg.jpg" class="card-img-top" alt="stockImage">
         </div>
         <div class="card-body cardCol">
@@ -17,7 +17,6 @@
         </div>
         <div class="card-body cardCol">
             <p>Current bid:{{dataValues.highestBid}}</p>
-            <a href="/sell">Bid</a>
         </div>
     </div>
     {{/each}}
