@@ -1,7 +1,7 @@
 <div>{{> nav/nav-block}}</div>
 <div class="card formCol">
     <div class="card-body cardCol">
-        <form class="text">
+        <form action="/sell" method="POST" class="text">
             <div class="form-group">
                 <label for="category" class="fText ">Category</label>
                 <select class="form-control form-control-lg" name="category" value={{category}}>
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="description" class="fText ">Item description</label>
-                <textarea class="form-control" name="descript" value={{descript}} rows="3"></textarea>
+                <textarea class="form-control" name="descript" rows="3" value={{descript}}></textarea>
             </div>
             <div class="form-group">
                 <label for="startBid" class="fText ">Starting Bid Price</label>

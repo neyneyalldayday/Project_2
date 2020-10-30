@@ -1,5 +1,5 @@
 const db = require("../models");
-
+//const Items = require("../models/Items");
 module.exports = (app) => {
 
   app.get("/", (req, res) => {
@@ -11,6 +11,7 @@ module.exports = (app) => {
   app.get("/sell", (req, res) => {
     res.render("sell", res);
   });
+  
 
   app.get("/signup", (req, res) => {
     res.render("signup", res);
@@ -18,19 +19,11 @@ module.exports = (app) => {
 
   app.post("/sell", (req, res) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
-
-    // const repNum = function () {
-    //   if (replica) {
-    //     return 1;
-    //   } return 0;
-      
-    // };
-
+  
     db.Item.create({
       category,
       itemName,
-      replica,
-      // repNum,
+      replica, 
       descript,
       highestBid
     })
