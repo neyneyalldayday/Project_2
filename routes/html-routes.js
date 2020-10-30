@@ -19,19 +19,11 @@ module.exports = (app) => {
 
   app.post("/sell", (req, res) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
-<<<<<<< HEAD
-    
-    db.Item.create({
-      category,
-      itemName,
-      replica,
-=======
   
     db.Item.create({
       category,
       itemName,
       replica, 
->>>>>>> main
       descript,
       highestBid
     })
@@ -40,7 +32,4 @@ module.exports = (app) => {
   });
 };
 
-<<<<<<< HEAD
-=======
   
->>>>>>> main
