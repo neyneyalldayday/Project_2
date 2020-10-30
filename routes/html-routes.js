@@ -1,25 +1,35 @@
 const db = require("../models");
+//const Items = require("../models/Items");
 module.exports = (app) => {
 
   app.get("/", (req, res) => {
     db.Item.findAll({}).then((dbItems) => {
-      res.render("index",{Items: dbItems});
+      res.render("index", { items: dbItems });
     });
   });
 
-  app.post("/api/sell", (req, res) => {
-    db.Item.create(req.body).then((dbItems) => {
-      res.json(dbItems);
-    });
+  app.get("/sell", (req, res) => {
+    res.render("sell", res);
+  });
+  
+
+  app.get("/signup", (req, res) => {
+    res.render("signup", res);
   });
 
-  app.delete("/api/items/:id",(req, res) => {
-    db.Item.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then((dbItems) =>{
-      res.json(dbItems);
-    });
+  app.post("/sell", (req, res) => {
+    const { category, itemName, replica, descript, highestBid } = req.body;
+  
+    db.Item.create({
+      category,
+      itemName,
+      replica, 
+      descript,
+      highestBid
+    })
+      .then(() => res.redirect("/"))
+      .catch(err => console.log(err));
   });
 };
+
+  

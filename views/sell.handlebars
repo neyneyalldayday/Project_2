@@ -1,39 +1,49 @@
-
-<form>
-    <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control form-control-lg" id="category">
-            <option>Weapon</option>
-            <option>Armor</option>
-        </select>
+<div>{{> nav/nav-block}}</div>
+<div class="card formCol">
+    <div class="card-body cardCol">
+        <form action="/sell" method="POST" class="text">
+            <div class="form-group">
+                <label for="category" class="fText ">Category</label>
+                <select class="form-control form-control-lg" name="category" value={{category}}>
+                    <option></option>
+                    <option>Weapon</option>
+                    <option>Armor</option>
+                </select>
+                <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+            </div>
+            <div class="form-group">
+                <label for="itemType" class="fText ">Item Name</label>
+                <select class="form-control form-control-lg" name="itemName" value={{itemName}}>
+                    <option></option>
+                    <option>Katana</option>
+                    <option>Naginata</option>
+                    <option>Yumi</option>
+                    <option>Tanto</option>
+                    <option>Helmet</option>
+                    <option>Yoroi Armor</option>
+                    <option>Tatami-Gusoku</option>
+                    <option>Hoate</option>
+                </select>
+                <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+            </div>
+            <div class="form-group">
+                <label for="rep" class="fText ">Authentic or Replica</label>
+                <select class="form-control form-control-lg" name="replica" value={{replica}}>
+                    <option></option>
+                    <option>0</option>
+                    <option>1</option>
+                </select>
+                <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+            </div>
+            <div class="form-group">
+                <label for="description" class="fText ">Item description</label>
+                <textarea class="form-control" name="descript" rows="3" value={{descript}}></textarea>
+            </div>
+            <div class="form-group">
+                <label for="startBid" class="fText ">Starting Bid Price</label>
+                <input type="text" class="form-control" name="highestBid" value={{highestBid}}>
+            </div>
+            <button type="submit" class="submit fText">Submit</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="itemType">Item Name</label>
-        <select class="form-control form-control-lg" id="itemType">
-            <option>Katana</option>
-            <option>Naginata</option>
-            <option>Yumi</option>
-            <option>Tanto</option>
-            <option>Helmet</option>
-            <option>Yoroi Armor</option>
-            <option>Tatami-Gusoku</option>
-            <option>Hoate</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="rep">Authentic or Replica</label>
-        <select class="form-control form-control-lg" id="rep">
-            <option>Authentic</option>
-            <option>Replica</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="description">Item description</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="startBid">Starting Bid Price</label>
-        <input type="text" class="form-control" id="startBid">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
