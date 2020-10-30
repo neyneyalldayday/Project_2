@@ -88,6 +88,11 @@
   margin-left: 25%;
 }
 
+.hdr {
+  font-weight: bold;
+  color: black;
+} 
+
 .submit {
   border-radius: 5px;
   height: 60px;
@@ -131,8 +136,10 @@
 .form-popup {
   display: none;
   position: fixed;
-  bottom: 0;
-  right: 15px;
+  /* bottom: 0;
+  right: 15px; */
+  top: 130px;
+  left: 25px;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
@@ -179,4 +186,8 @@
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+.buff {
+  margin-top: 15px;
 }
