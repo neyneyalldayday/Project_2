@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "FrankY242424!",
+=======
+    "password": "Password1",
+>>>>>>> 2fc1ce354d2cb220c893b7390e970206d5e21899
     "database": "bid_items",
     "host": "127.0.0.1",
     "dialect": "mysql"
