@@ -16,7 +16,7 @@
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
-    "handlebars": "^4.5.0"
+    "handlebars": "^4.7.6"
   },
   "scripts": {
     "test": "npm run lint",

@@ -1,50 +1,49 @@
-
 <div>{{> nav/nav-block}}</div>
 <div class="card formCol">
-  <div class="card-body cardCol">
-<form class="text">
-    <div class="form-group">
-        <label for="category" class="fText ">Category</label>
-        <select class="form-control form-control-lg" id="category">
-            <option></option>
-            <option>Weapon</option>
-            <option>Armor</option>
-        </select>
-        <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+    <div class="card-body cardCol">
+        <form class="text">
+            <div class="form-group">
+                <label for="category" class="fText ">Category</label>
+                <select class="form-control form-control-lg" id="category">
+                    <option></option>
+                    <option>Weapon</option>
+                    <option>Armor</option>
+                </select>
+                <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+            </div>
+            <div class="form-group">
+                <label for="itemType" class="fText ">Item Name</label>
+                <select class="form-control form-control-lg" id="itemType">
+                    <option></option>
+                    <option>Katana</option>
+                    <option>Naginata</option>
+                    <option>Yumi</option>
+                    <option>Tanto</option>
+                    <option>Helmet</option>
+                    <option>Yoroi Armor</option>
+                    <option>Tatami-Gusoku</option>
+                    <option>Hoate</option>
+                </select>
+                <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+            </div>
+            <div class="form-group">
+                <label for="rep" class="fText ">Authentic or Replica</label>
+                <select class="form-control form-control-lg" id="rep">
+                    <option></option>
+                    <option>Authentic</option>
+                    <option>Replica</option>
+                </select>
+                <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
+            </div>
+            <div class="form-group">
+                <label for="description" class="fText ">Item description</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="startBid" class="fText ">Starting Bid Price</label>
+                <input type="text" class="form-control" id="startBid">
+            </div>
+            <button type="submit" class="submit fText">Submit</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="itemType" class="fText ">Item Name</label>
-        <select class="form-control form-control-lg" id="itemType">
-            <option></option>
-            <option>Katana</option>
-            <option>Naginata</option>
-            <option>Yumi</option>
-            <option>Tanto</option>
-            <option>Helmet</option>
-            <option>Yoroi Armor</option>
-            <option>Tatami-Gusoku</option>
-            <option>Hoate</option>
-        </select>
-        <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
-    </div>
-    <div class="form-group">
-        <label for="rep" class="fText ">Authentic or Replica</label>
-        <select class="form-control form-control-lg" id="rep">
-            <option></option>
-            <option>Authentic</option>
-            <option>Replica</option>
-        </select>
-        <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
-    </div>
-    <div class="form-group">
-        <label for="description" class="fText ">Item description</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="startBid" class="fText ">Starting Bid Price</label>
-        <input type="text" class="form-control" id="startBid">
-    </div>
-    <button type="submit" class="submit fText">Submit</button>
-</form>
-  </div>
 </div>
