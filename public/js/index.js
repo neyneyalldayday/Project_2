@@ -1,13 +1,4 @@
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-}
 
 // Return to top button function
 homebutton = document.getElementById("homeBtn");
@@ -23,15 +14,3 @@ function scrollFunction() {
   }
 }
 
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
