@@ -15,4 +15,26 @@ module.exports = (app) => {
   app.get("/signup", (req, res) => {
     res.render("signup", res);
   });
+
+  app.post("/sell", (req, res) => {
+    const { category, itemName, replica, descript, highestBid } = req.body;
+
+    // const repNum = function () {
+    //   if (replica) {
+    //     return 1;
+    //   } return 0;
+      
+    // };
+
+    db.Item.create({
+      category,
+      itemName,
+      replica,
+      // repNum,
+      descript,
+      highestBid
+    })
+      .then(() => res.redirect("/"))
+      .catch(err => console.log(err));
+  });
 };

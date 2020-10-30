@@ -4,7 +4,7 @@
         <form class="text">
             <div class="form-group">
                 <label for="category" class="fText ">Category</label>
-                <select class="form-control form-control-lg" id="category">
+                <select class="form-control form-control-lg" name="category" value={{category}}>
                     <option></option>
                     <option>Weapon</option>
                     <option>Armor</option>
@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label for="itemType" class="fText ">Item Name</label>
-                <select class="form-control form-control-lg" id="itemType">
+                <select class="form-control form-control-lg" name="itemName" value={{itemName}}>
                     <option></option>
                     <option>Katana</option>
                     <option>Naginata</option>
@@ -28,20 +28,20 @@
             </div>
             <div class="form-group">
                 <label for="rep" class="fText ">Authentic or Replica</label>
-                <select class="form-control form-control-lg" id="rep">
+                <select class="form-control form-control-lg" name="replica" value={{replica}}>
                     <option></option>
-                    <option>Authentic</option>
-                    <option>Replica</option>
+                    <option>1</option>
+                    <option>0</option>
                 </select>
                 <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
             </div>
             <div class="form-group">
                 <label for="description" class="fText ">Item description</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
+                <textarea class="form-control" name="descript" value={{descript}} rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label for="startBid" class="fText ">Starting Bid Price</label>
-                <input type="text" class="form-control" id="startBid">
+                <input type="text" class="form-control" name="highestBid" value={{highestBid}}>
             </div>
             <button type="submit" class="submit fText">Submit</button>
         </form>
