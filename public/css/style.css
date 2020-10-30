@@ -135,6 +135,13 @@
   padding: 5px;
 }
 
+.bids {
+  margin-left: 80px;
+}
+
+#homeBtn {
+  margin-left: 100px;
+}
 /* The popup form - hidden by default */
 
 .form-popup {
