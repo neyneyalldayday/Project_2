@@ -18,6 +18,8 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+app.use(bodyParser.urlencoded({ extended: false}));
+
 // Static directory
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
