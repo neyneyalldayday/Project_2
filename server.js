@@ -1,3 +1,6 @@
+const session = require("express-session");
+
+const passport = require("./config/passport");
 // Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -23,9 +26,13 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // Static directory
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
 
 
 // Sync sequelize models then start Express App
