@@ -1,5 +1,11 @@
+const AWS = require("aws-sdk");
 const db = require("../models");
-//const Items = require("../models/Items");
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.s3key,
+  secretAccessKey: process.env.s3secret
+});
+
 module.exports = (app) => {
 
   app.get("/", (req, res) => {
