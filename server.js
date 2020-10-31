@@ -1,7 +1,6 @@
 // Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
-
 // Set up Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
