@@ -31,12 +31,13 @@ module.exports = (app) => {
       .catch(err => console.log(err));
   });
 
-  app.get("/search", (req, res) => {
-    const { itemName, replica } = req.body;
-  
-    db.Item.findAll({
-      itemName,
-      replica, 
+  app.get("/", (req, res) => {
+    
+    db.Item.findOne({
+      where: {
+        itemName: req.params.ItemName
+      }
+      
     })
       .then(() => res.redirect("/"))
       .catch(err => console.log(err));
