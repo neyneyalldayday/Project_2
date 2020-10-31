@@ -30,6 +30,17 @@ module.exports = (app) => {
       .then(() => res.redirect("/"))
       .catch(err => console.log(err));
   });
+
+  app.get("/search", (req, res) => {
+    const { itemName, replica } = req.body;
+  
+    db.Item.findAll({
+      itemName,
+      replica, 
+    })
+      .then(() => res.redirect("/"))
+      .catch(err => console.log(err));
+  });
 };
 
   
