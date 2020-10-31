@@ -119,6 +119,7 @@ html,
   font-family: 'Ceviche One', cursive;
   -webkit-text-stroke: 1.11px rgba(54, 54, 6, 0.671); /* stroke width and color */
   -webkit-font-smoothing: antialiased;
+  opacity: .9;
 }
 
 
@@ -180,6 +181,7 @@ html,
   color: #ddba1e;
   -webkit-text-stroke: 1.11px rgba(54, 54, 6, 0.671); /* stroke width and color */
   -webkit-font-smoothing: antialiased;
+  opacity: .9;
   
 }
 #selectHelper {
