@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
+
 // Set up Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -20,6 +21,7 @@ app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // Static directory
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
 // Routes
