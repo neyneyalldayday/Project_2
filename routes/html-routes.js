@@ -38,16 +38,6 @@ module.exports = (app) => {
       .catch(err => console.log(err));
   });
 
-  app.get("/search", (req, res) => {
-    const { itemName, replica } = req.body;
-
-    db.Item.findAll({
-      itemName,
-      replica,
-    })
-      .then(() => res.redirect("/"))
-      .catch(err => console.log(err));
-  });
 
   // Image uploader
   // post route to handle file upload
