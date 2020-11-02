@@ -24,6 +24,23 @@ module.exports = (app) => {
     res.render("signup", res);
   });
 
+  app.get("/search", (req, res) => {
+    console.log(req.query.itemname);
+
+    const itemName = req.query.itemname;
+
+    db.Item.findAll({
+      where: { itemName: itemName}
+    })
+      .then((dbItems) => {
+        res.render("searchrender",{items: dbItems});
+      })
+      .catch(err => console.log(err));
+
+    
+  });
+
+
   app.post("/sell", (req, res) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
 

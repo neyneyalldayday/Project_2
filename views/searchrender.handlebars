@@ -1,0 +1,29 @@
+<div>{{>nav/nav-block}}</div>
+<div class="bids">
+<div class="row">
+
+
+    {{#each items}}
+    <div class="card items text fText" style="width: 18rem;">
+        <div class="image card-body cardCol">
+            <img src="/image/defImg.jpg" class="card-img-top" alt="stockImage">
+        </div>
+        <div class="card-body cardCol">
+            <h5 class="card-title uLine">{{dataValues.itemName}}</h5>
+            <p>{{#if dataValues.replica}}Replica{{else}}Authentic{{/if}}</p>
+            <div class="tBord">
+                <p class="card-text">{{dataValues.descript}}</p>
+            </div>
+        </div>
+        <div class="card-body cardCol">
+            <p class="waitingForConnection">Current bid:&#165;{{dataValues.highestBid}}</p>
+            <a href="">Bid</a>
+        </div>
+    </div>
+    {{/each}}
+
+
+</div>
+<!--Return to top button-->
+<button onclick="topFunction()" id="homeBtn" class="submit text fText" title="Go to top">Return to Top</button>
+</div>
