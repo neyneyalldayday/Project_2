@@ -39,6 +39,21 @@ module.exports = (app) => {
 
     
   });
+  app.get("/cat", (req, res) => {
+    console.log(req.query.category);
+
+    const category = req.query.category;
+
+    db.Item.findAll({
+      where: { category: category}
+    })
+      .then((dbItems) => {
+        res.render("catSearch",{items: dbItems});
+      })
+      .catch(err => console.log(err));
+
+    
+  });
 
 
   app.post("/sell", (req, res) => {
@@ -53,9 +68,8 @@ module.exports = (app) => {
     })
       .then(() => res.redirect("/"))
       .catch(err => console.log(err));
-  });    
-  
-  //};
+  });
+
 
   // Image uploader
   // post route to handle file upload

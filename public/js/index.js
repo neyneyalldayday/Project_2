@@ -1,4 +1,4 @@
-
+// $(document).ready(() => {
 
 // Return to top button function
 homebutton = document.getElementById("homeBtn");
@@ -7,7 +7,7 @@ homebutton = document.getElementById("homeBtn");
 window.onscroll = function () { scrollFunction(); };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+  if (document.body.scrollTop > 900 || document.documentElement.scrollTop > 900) {
     homebutton.style.display = "block";
   } else {
     homebutton.style.display = "none";
@@ -48,3 +48,4 @@ $("#submitUpload").on("click", (event) => {
     }
   });
 });
+// });
