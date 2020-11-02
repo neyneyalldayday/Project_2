@@ -287,3 +287,7 @@ html,
   -webkit-animation-duration: 1.7s;
   
 }
+
+.sellErrors{
+  color: red;
+}
