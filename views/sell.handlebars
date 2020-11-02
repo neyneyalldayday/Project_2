@@ -2,6 +2,11 @@
 <div class="card formCol">
     <div class="card-body cardCol">
         <form action="/sell" method="POST" class="text">
+        {{#each errors}}
+        <div class="sellErrors">
+          <p>{{text}}</p>
+        </div>
+        {{/each}}
             <div class="form-group">
                 <label for="category" class="fText ">Category</label>
                 <select class="form-control form-control-lg" name="category">
@@ -39,16 +44,16 @@
                 <input type="radio" name="replica" value="1" checked> Replica<br>
                 <input type="radio" name="replica" value="0"> Authentic
             </div>
-            <form id="uploadForm" enctype="multipart/form-data">
+            <!--<form id="uploadForm" enctype="multipart/form-data">
                 <label for="description">File Description:</label>
-                <input type="text" name="description" placeholder="File Description" id="description" />
+                <input type="text" name="description" placeholder="File Description" id="description" />-->
 
                 <!-- the name attribute here ('upload') must match the key following 'req.files' in your back-end route! -->
-                <label for="upload">Upload File:</label>
+                <!--<label for="upload">Upload File:</label>
                 <input type="file" name="upload" id="upload"/>
 
                 <input type="submit" value="Upload File" id="submitUpload" >
-            </form>
+            </form>-->
 
             <button type="submit" class="submit fText">Submit</button> 
         </form>
