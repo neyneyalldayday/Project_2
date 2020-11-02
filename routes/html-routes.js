@@ -13,7 +13,6 @@ module.exports = (app) => {
       console.log(dbItems);
       console.log("user",req.user);
       res.render("index", { items: dbItems });
-
     });
   });
 
@@ -26,6 +25,7 @@ module.exports = (app) => {
     res.render("signup", res);
   });
 
+  //Search items by item name
   app.get("/search", (req, res) => {
     console.log(req.query.itemname);
 
@@ -57,21 +57,52 @@ module.exports = (app) => {
     
   });
 
-
+  // sell items/ adds items to database and displays errors to page
   app.post("/sell", (req, res) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
+    const errors = [];
 
-    db.Item.create({
-      category,
-      itemName,
-      replica,
-      descript,
-      highestBid
-    })
-      .then(() => res.redirect("/"))
-      .catch(err => console.log(err));
-  });
+    if(!category){
+      errors.push({ text: "Please add a category"});
+    }
+    if(!itemName){
+      errors.push({ text: "Please add a Item Name"});
+    }
+    if(!replica){
+      errors.push({ text: "Please add Replica or Authentic"});
+    }
+    if(!descript){
+      errors.push({ text: "Please add a Description"});
+    }
+    if(!highestBid){
+      errors.push({ text: "Please add a Starting Price"});
+    }
 
+    if(errors.length > 0) {
+      res.render("sell",{ 
+        errors,
+        category, 
+        itemName,  
+        descript, 
+        highestBid 
+
+      });
+    } else{
+      db.Item.create({
+        category,
+        itemName,
+        replica,
+        descript,
+        highestBid
+      })
+        .then(() => res.redirect("/"))
+        .catch(err => console.log(err));
+    }
+
+    
+  });    
+  
+  //};
 
   // Image uploader
   // post route to handle file upload

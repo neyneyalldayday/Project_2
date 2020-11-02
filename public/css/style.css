@@ -94,10 +94,14 @@ html,
 	padding: 0px;
 	overflow-x: hidden;
   background-color: #8c2427;  
-  background-image:url(https://wallpaperaccess.com/full/16025.jpg);
-  background-blend-mode: overlay;
-  
-  background-size: cover; 
+  /* background-image:url(https://wallpaperaccess.com/full/16025.jpg); */
+  background-repeat: no-repeat;
+  background-image: url(/image/Samurai-Banner.png);
+  background-blend-mode: overlay; 
+  background-size: 100%; 
+  object-fit: cover;
+  object-position: center;
+ 
   
 }
 
@@ -286,4 +290,8 @@ html,
   -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
   -webkit-animation-duration: 1.7s;
   
+}
+
+.sellErrors{
+  color: red;
 }
