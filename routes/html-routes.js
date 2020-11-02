@@ -12,6 +12,7 @@ module.exports = (app) => {
     db.Item.findAll({}).then((dbItems) => {
       console.log("user",req.user);
       res.render("index", { items: dbItems });
+      
     });
   });
 
