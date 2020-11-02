@@ -101,12 +101,15 @@ module.exports = (app) => {
 
     
   });    
-  
-  //};
+
+  app.get("/upload", (req, res) => {
+    res.render("upload", res);
+  });
+
 
   // Image uploader
   // post route to handle file upload
-  app.post("/sell", async (req, res) => {
+  app.post("/upload", async (req, res) => {
     // Sending error back if no file was uploaded
     if (!req.files) {
       return res.status(400).send("No file was uploaded.");
