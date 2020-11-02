@@ -20,7 +20,7 @@
                     <option>Yumi</option>
                     <option>Tanto</option>
                     <option>Helmet</option>
-                    <option>Yoroi Armor</option>
+                    <option>Yoroi Armour</option>
                     <option>Tatami-Gusoku</option>
                     <option>Hoate</option>
                 </select>
@@ -45,10 +45,12 @@
 
                 <!-- the name attribute here ('upload') must match the key following 'req.files' in your back-end route! -->
                 <label for="upload">Upload File:</label>
-                <input type="file" name="upload" id="upload" />
+                <input type="file" name="upload" id="upload"/>
+
+                <input type="submit" value="Upload File" id="submitUpload" >
             </form>
 
-            <input type="submit" value="Upload File" id="submitUpload" class="submit fText">
+            <button type="submit" class="submit fText">Submit</button> 
         </form>
     </div>
 </div>
