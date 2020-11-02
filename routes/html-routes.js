@@ -40,6 +40,21 @@ module.exports = (app) => {
 
     
   });
+  app.get("/cat", (req, res) => {
+    console.log(req.query.category);
+
+    const category = req.query.category;
+
+    db.Item.findAll({
+      where: { category: category}
+    })
+      .then((dbItems) => {
+        res.render("catSearch",{items: dbItems});
+      })
+      .catch(err => console.log(err));
+
+    
+  });
 
   // sell items/ adds items to database and displays errors to page
   app.post("/sell", (req, res) => {
