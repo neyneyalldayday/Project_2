@@ -17,7 +17,7 @@ passport.use(new LocalStrategy({
     }
     else if (!dbUser.validPassword(password)) {
       return done(null, false, {
-        message: "Incorrect password."
+        message: "Incorrect password daddy."
       });
     }
     return done(null, dbUser);

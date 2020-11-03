@@ -37,8 +37,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 
 // Sync sequelize models then start Express App

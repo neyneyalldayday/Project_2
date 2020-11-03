@@ -1,12 +1,15 @@
 const AWS = require("aws-sdk");
 const db = require("../models");
 
+const isAuthenticated = require("../middleware/isAuthenticated");
+
 const s3 = new AWS.S3({
   accessKeyId: process.env.s3key,
   secretAccessKey: process.env.s3secret
 });
 
 module.exports = (app) => {
+  
 
   app.get("/", (req, res) => {
     db.Item.findAll({}).then((dbItems) => {
@@ -16,7 +19,7 @@ module.exports = (app) => {
     });
   });
 
-  app.get("/sell", (req, res) => {
+  app.get("/sell", isAuthenticated, (req, res) => {
     res.render("sell", res);
   });
 
@@ -136,5 +139,9 @@ module.exports = (app) => {
       res.json({ url: response.Location, data: req.body });
     });
   });
+  
+    
+ 
+  
 
 }; 
