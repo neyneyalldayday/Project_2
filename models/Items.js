@@ -26,10 +26,15 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         defaultValue: true
       },
-      currentBid: {
+      highestBid: {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
+      },
+      imageLink: {
+        type: DataTypes.STRING,
+        allowNull: true, 
+        defaultValue: "/image/defImg.jpg"
       }
 
     });

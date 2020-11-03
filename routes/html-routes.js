@@ -9,6 +9,8 @@ const s3 = new AWS.S3({
   secretAccessKey: keys.s3secret
 });
 
+const locLink = [];
+
 module.exports = (app) => {
 
   app.get("/", (req, res) => {
@@ -66,8 +68,9 @@ module.exports = (app) => {
 
   // sell items/ adds items to database and displays errors to page
   app.post("/sell", (req, res) => {
-    const { category, itemName, replica, descript, currentBid } = req.body;
+    const { category, itemName, replica, descript, highestBid } = req.body;
     const errors = [];
+    const imageLink = locLink[0];
 
     if (!category) {
       errors.push({ text: "Please add a category" });
@@ -81,7 +84,7 @@ module.exports = (app) => {
     if (!descript) {
       errors.push({ text: "Please add a Description" });
     }
-    if(!currentBid){
+    if(!highestBid){
       errors.push({ text: "Please add a Starting Price"});
     }
 
@@ -91,7 +94,7 @@ module.exports = (app) => {
         category, 
         itemName,  
         descript, 
-        currentBid 
+        highestBid 
 
       });
     } else {
@@ -100,7 +103,8 @@ module.exports = (app) => {
         itemName,
         replica,
         descript,
-        currentBid
+        highestBid,
+        imageLink
       })
         .then(() => res.redirect("/"))
         .catch(err => console.log(err));
@@ -110,14 +114,14 @@ module.exports = (app) => {
   });
   //Bid on items
   app.put("/bid", (req, res) => {
-    const chosenItem = req.params.id;
+    const chosenItem = req.body.id;
     db.Item.update(
-      chosenItem,
+      db.Item.highestBid,
       {
         where: { id: chosenItem }
       })
-      .then((dbItems) => {
-        res.render("/", { items: dbItems });
+      .then(() => {
+        res.redirect("/");
       })
       .catch(err => console.log(err));
   });
@@ -153,6 +157,9 @@ module.exports = (app) => {
         console.log("upload test");
         throw err;
       }
+
+      locLink.push(response.Location);
+      console.log(locLink);
 
       console.log(`File uploaded successfully at ${response.Location}`);
       // terminating the req/res cycle by sending a JSON object with the uploaded
