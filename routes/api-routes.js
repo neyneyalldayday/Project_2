@@ -41,4 +41,20 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.put("/api/bid_items/:id", (req, res) => {
+    const chosenItem = req.params.id;
+    console.log("chosenItem", chosenItem);
+
+    db.Item.update({
+      highestBid: req.body.highestBid
+    },{
+      where: { id: chosenItem }
+    })
+      .then(() => {
+        res.redirect("/")
+          .catch(err => console.log(err));
+      });
+      
+  });
 };
