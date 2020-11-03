@@ -279,6 +279,14 @@ html,
   margin-top: 15px;
 }
 
+.buffb {
+  margin-bottom: 15px;
+}
+
+.bufflo {
+  margin-top: 200px;
+}
+
 @-webkit-keyframes blinker {
   from { opacity: 1.0; }
   to { opacity: 0.0; }

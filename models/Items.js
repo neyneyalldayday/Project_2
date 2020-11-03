@@ -26,12 +26,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         defaultValue: true
       },
-      highestBid: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 0
-      },
-      startingBid: {
+      currentBid: {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
