@@ -59,7 +59,7 @@ module.exports = (app) => {
 
   // sell items/ adds items to database and displays errors to page
   app.post("/sell", (req, res) => {
-    const { category, itemName, replica, descript, highestBid } = req.body;
+    const { category, itemName, replica, descript, startingBid } = req.body;
     const errors = [];
 
     if(!category){
@@ -74,7 +74,7 @@ module.exports = (app) => {
     if(!descript){
       errors.push({ text: "Please add a Description"});
     }
-    if(!highestBid){
+    if(!startingBid){
       errors.push({ text: "Please add a Starting Price"});
     }
 
@@ -84,7 +84,7 @@ module.exports = (app) => {
         category, 
         itemName,  
         descript, 
-        highestBid 
+        startingBid 
 
       });
     } else{
@@ -93,7 +93,7 @@ module.exports = (app) => {
         itemName,
         replica,
         descript,
-        highestBid
+        startingBid
       })
         .then(() => res.redirect("/"))
         .catch(err => console.log(err));
