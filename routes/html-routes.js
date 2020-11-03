@@ -3,6 +3,8 @@ const db = require("../models");
 require("dotenv").config();
 const keys = require("./keys");
 
+
+
 // creating s3 instance (to allow uploads)
 const s3 = new AWS.S3({
   accessKeyId: keys.s3key,
@@ -12,6 +14,7 @@ const s3 = new AWS.S3({
 const locLink = [];
 
 module.exports = (app) => {
+  
 
   app.get("/", (req, res) => {
     db.Item.findAll({}).then((dbItems) => {
@@ -169,6 +172,11 @@ module.exports = (app) => {
       res.json({ url: response.Location, data: req.body });
     });
   });
+  
+  
+    
+ 
+  
 
 
 }; 

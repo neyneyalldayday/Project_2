@@ -10,12 +10,12 @@ module.exports = function(app) {
  
   app.post("/api/signup", (req, res) => {
     console.log(req.body);
-    db.User.create({
+    db.user.create({
       email: req.body.email,
       password: req.body.password
     })
       .then(() => {
-        res.redirect( "/");
+        res.redirect(307, "/api/login");
       })
       .catch(() => {
         res.render("/signup");

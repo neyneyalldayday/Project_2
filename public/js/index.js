@@ -47,6 +47,6 @@ $("#submitUpload").on("click", (event) => {
       console.log("error test");
       console.log(err);
     }
-  });
+  }); 
+    
 });
-// });
