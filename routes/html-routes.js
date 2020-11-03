@@ -3,7 +3,7 @@ const db = require("../models");
 require("dotenv").config();
 const keys = require("./keys");
 
-const isAuthenticated = require("../middleware/isAuthenticated");
+
 
 // creating s3 instance (to allow uploads)
 const s3 = new AWS.S3({
@@ -22,7 +22,7 @@ module.exports = (app) => {
     });
   });
 
-  app.get("/sell", isAuthenticated, (req, res) => {
+  app.get("/sell", (req, res) => {
     res.render("sell", res);
   });
 
