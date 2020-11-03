@@ -28,6 +28,10 @@ module.exports = (app) => {
     res.render("signup", res);
   });
 
+  app.get("/bid", (req, res) => {
+    res.render("bid", res);
+  });
+
   //Search items by item name
   app.get("/search", (req, res) => {
     console.log(req.query.itemname);
@@ -104,6 +108,20 @@ module.exports = (app) => {
 
 
   });
+  //Bid on items
+  app.put("/bid", (req, res) => {
+    const chosenItem = req.params.id;
+    db.Item.update(
+      chosenItem,
+      {
+        where: { id: chosenItem }
+      })
+      .then((dbItems) => {
+        res.render("/", { items: dbItems });
+      })
+      .catch(err => console.log(err));
+  });
+    
 
   app.get("/upload", (req, res) => {
     res.render("upload", res);
