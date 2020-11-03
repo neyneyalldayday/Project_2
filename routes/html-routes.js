@@ -11,6 +11,8 @@ const s3 = new AWS.S3({
   secretAccessKey: keys.s3secret
 });
 
+const locLink = [];
+
 module.exports = (app) => {
   
 
@@ -67,6 +69,7 @@ module.exports = (app) => {
   app.post("/sell", (req, res) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
     const errors = [];
+    const imageLink = locLink[0];
 
     if (!category) {
       errors.push({ text: "Please add a category" });
@@ -99,7 +102,8 @@ module.exports = (app) => {
         itemName,
         replica,
         descript,
-        highestBid
+        highestBid,
+        imageLink
       })
         .then(() => res.redirect("/"))
         .catch(err => console.log(err));
@@ -138,6 +142,9 @@ module.exports = (app) => {
         console.log("upload test");
         throw err;
       }
+
+      locLink.push(response.Location);
+      console.log(locLink);
 
       console.log(`File uploaded successfully at ${response.Location}`);
       // terminating the req/res cycle by sending a JSON object with the uploaded
