@@ -1,5 +1,4 @@
 const session = require("express-session");
-
 const passport = require("./config/passport");
 // Dependencies
 const express = require("express");
@@ -10,9 +9,6 @@ require("dotenv").config();
 // Set up Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
-
-// creating s3 instance (to allow uploads)
-
 
 // Require models for sync
 const db = require("./models");
@@ -30,7 +26,7 @@ app.set("view engine", "handlebars");
 app.use(fileUpload());
 
 // Static directory
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -39,7 +35,6 @@ app.use(passport.session());
 // Routes
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
-
 
 // Sync sequelize models then start Express App
 db.sequelize.sync().then(() => {
