@@ -30,6 +30,11 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
+      },
+      imageLink: {
+        type: DataTypes.STRING,
+        allowNull: true, 
+        defaultValue: "/image/defImg.jpg"
       }
 
     });
