@@ -2,6 +2,11 @@
 <div class="card formCol">
     <div class="card-body cardCol">
         <form action="/sell" method="POST" class="text">
+        {{#each errors}}
+        <div class="sellErrors">
+          <p>{{text}}</p>
+        </div>
+        {{/each}}
             <div class="form-group">
                 <label for="category" class="fText ">Category</label>
                 <select class="form-control form-control-lg" name="category">
@@ -11,7 +16,7 @@
                 </select>
                 <small id="selectHelper" class="form-text text-muted">Select from dropdown</small>
             </div>
-            <div class="form-group">
+            <div class="form-group special-form">
                 <label for="itemType" class="fText ">Item Name</label>
                 <select class="form-control form-control-lg" name="itemName">
                     <option></option>
@@ -20,7 +25,7 @@
                     <option>Yumi</option>
                     <option>Tanto</option>
                     <option>Helmet</option>
-                    <option>Yoroi Armor</option>
+                    <option>Yoroi Armour</option>
                     <option>Tatami-Gusoku</option>
                     <option>Hoate</option>
                 </select>
@@ -34,12 +39,23 @@
                 <label for="startBid" class="fText ">Starting Bid Price</label>
                 <input type="text" class="form-control" name="highestBid">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="checkbox">
                 <label for="replica">Check below</label><br>
                 <input type="radio" name="replica" value="1" checked> Replica<br>
                 <input type="radio" name="replica" value="0"> Authentic
             </div>
-            <button type="submit" class="submit fText">Submit</button>
+            <!--<form id="uploadForm" enctype="multipart/form-data">
+                <label for="description">File Description:</label>
+                <input type="text" name="description" placeholder="File Description" id="description" />-->
+
+                <!-- the name attribute here ('upload') must match the key following 'req.files' in your back-end route! -->
+                <!--<label for="upload">Upload File:</label>
+                <input type="file" name="upload" id="upload"/>
+
+                <input type="submit" value="Upload File" id="submitUpload" >
+            </form>-->
+
+            <button type="submit" class="submit fText">Submit</button> 
         </form>
     </div>
 </div>
