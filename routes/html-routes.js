@@ -1,11 +1,14 @@
 const AWS = require("aws-sdk");
 const db = require("../models");
+require("dotenv").config();
+const keys = require("./keys");
 
 const isAuthenticated = require("../middleware/isAuthenticated");
 
+// creating s3 instance (to allow uploads)
 const s3 = new AWS.S3({
-  accessKeyId: process.env.s3key,
-  secretAccessKey: process.env.s3secret
+  accessKeyId: keys.s3key,
+  secretAccessKey: keys.s3secret
 });
 
 module.exports = (app) => {
@@ -13,9 +16,9 @@ module.exports = (app) => {
 
   app.get("/", (req, res) => {
     db.Item.findAll({}).then((dbItems) => {
-      console.log("user",req.user);
+      console.log(dbItems);
+      console.log("user", req.user);
       res.render("index", { items: dbItems });
-      
     });
   });
 
@@ -35,14 +38,14 @@ module.exports = (app) => {
     const itemName = req.query.itemname;
 
     db.Item.findAll({
-      where: { itemName: itemName}
+      where: { itemName: itemName }
     })
       .then((dbItems) => {
-        res.render("searchrender",{items: dbItems});
+        res.render("searchrender", { items: dbItems });
       })
       .catch(err => console.log(err));
 
-    
+
   });
   app.get("/cat", (req, res) => {
     console.log(req.query.category);
@@ -50,14 +53,14 @@ module.exports = (app) => {
     const category = req.query.category;
 
     db.Item.findAll({
-      where: { category: category}
+      where: { category: category }
     })
       .then((dbItems) => {
-        res.render("catSearch",{items: dbItems});
+        res.render("catSearch", { items: dbItems });
       })
       .catch(err => console.log(err));
 
-    
+
   });
 
   // sell items/ adds items to database and displays errors to page
@@ -65,32 +68,32 @@ module.exports = (app) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
     const errors = [];
 
-    if(!category){
-      errors.push({ text: "Please add a category"});
+    if (!category) {
+      errors.push({ text: "Please add a category" });
     }
-    if(!itemName){
-      errors.push({ text: "Please add a Item Name"});
+    if (!itemName) {
+      errors.push({ text: "Please add a Item Name" });
     }
-    if(!replica){
-      errors.push({ text: "Please add Replica or Authentic"});
+    if (!replica) {
+      errors.push({ text: "Please add Replica or Authentic" });
     }
-    if(!descript){
-      errors.push({ text: "Please add a Description"});
+    if (!descript) {
+      errors.push({ text: "Please add a Description" });
     }
-    if(!highestBid){
-      errors.push({ text: "Please add a Starting Price"});
+    if (!highestBid) {
+      errors.push({ text: "Please add a Starting Price" });
     }
 
-    if(errors.length > 0) {
-      res.render("sell",{ 
+    if (errors.length > 0) {
+      res.render("sell", {
         errors,
-        category, 
-        itemName,  
-        descript, 
-        highestBid 
+        category,
+        itemName,
+        descript,
+        highestBid
 
       });
-    } else{
+    } else {
       db.Item.create({
         category,
         itemName,
@@ -102,14 +105,18 @@ module.exports = (app) => {
         .catch(err => console.log(err));
     }
 
-    
-  });    
-  
-  //};
+
+  });
+
+  app.get("/upload", (req, res) => {
+    res.render("upload", res);
+  });
 
   // Image uploader
   // post route to handle file upload
-  app.post("/sell", async (req, res) => {
+  app.post("/upload", async (req, res) => {
+    console.log("TEst");
+
     // Sending error back if no file was uploaded
     if (!req.files) {
       return res.status(400).send("No file was uploaded.");
@@ -121,13 +128,14 @@ module.exports = (app) => {
     // setting up S3 upload parameters
     const params = {
       Body: uploadFile.data, // data from uploaded file
-      Bucket: process.env.s3bucket, // bucket name
+      Bucket: keys.s3bucket, // bucket name
       Key: `${Date.now()}-${uploadFile.name}` // file name to use for S3 bucket
     };
 
     // uploading file to the bucket
     s3.upload(params, (err, response) => {
       if (err) {
+        console.log("upload test");
         throw err;
       }
 
@@ -143,5 +151,6 @@ module.exports = (app) => {
     
  
   
+
 
 }; 
