@@ -1,0 +1,16 @@
+<div>{{> nav/nav-block}}</div>
+<div class="bufflo card formCol">
+    <div class="card-body cardCol">
+        <h2 class="hdr text">Upload Image</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="description">File Description:</label>
+            <input type="text" name="description" placeholder="File Description" id="description" />
+
+            <!-- the name attribute here ('upload') must match the key following 'req.files' in your back-end route! -->
+            <label for="upload">Upload File:</label>
+            <input type="file" name="upload" id="upload" />
+
+            <input type="submit" value="Upload File" id="submitUpload">
+        </form>
+    </div>
+</div>

@@ -17,7 +17,7 @@ function scrollFunction() {
 // Image upload function
 $("#submitUpload").on("click", (event) => {
   event.preventDefault();
-
+  console.log("front test");
   // target the form
   const form = $("#uploadForm")[0];
   // collect all data from the form (text fields AND file inputs)
@@ -44,6 +44,7 @@ $("#submitUpload").on("click", (event) => {
       $("#uploadForm")[0].reset();
     },
     error: function (err) {
+      console.log("error test");
       console.log(err);
     }
   });
