@@ -13,6 +13,7 @@ $(document).ready(() => {
     if (!userData.email || !userData.password) {
       return;
     }
+    console.log("testing");
     signUpUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
@@ -23,8 +24,9 @@ $(document).ready(() => {
       email: email,
       password: password
     })
+   
       .then(() => {
-        window.location.replace("/members");
+        res.redirect("/");
       })
       .catch(handleLoginErr);
   }
