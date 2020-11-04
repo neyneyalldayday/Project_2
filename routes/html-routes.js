@@ -80,7 +80,7 @@ module.exports = (app) => {
       errors.push({ text: "Please add a Description" });
     }
     if(!highestBid){
-      errors.push({ text: "Please add a Starting Price"});
+      errors.push({ text: "Please add a Selling Price"});
     }
 
     if (errors.length > 0) {
