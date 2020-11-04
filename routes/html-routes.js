@@ -55,8 +55,6 @@ module.exports = (app) => {
         res.render("catSearch", { items: dbItems });
       })
       .catch(err => console.log(err));
-
-
   });
 
   // sell items/ adds items to database and displays errors to page
@@ -102,8 +100,6 @@ module.exports = (app) => {
         .then(() => res.redirect("/"))
         .catch(err => console.log(err));
     }
-
-
   });
 
   app.get("/upload", (req, res) => {
@@ -137,10 +133,7 @@ module.exports = (app) => {
       locLink.push(response.Location);
 
       console.log(`File uploaded successfully at ${response.Location}`);
-      // terminating the req/res cycle by sending a JSON object with the uploaded
-      // file path AND any date sent along with the upload... this is where you 
-      // could write to your db if needed, now that you have the url path for the
-      // newly uploaded file!
+
       res.json({ url: response.Location, data: req.body });
     });
   });
