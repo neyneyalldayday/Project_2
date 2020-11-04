@@ -1,4 +1,9 @@
-<div>{{>nav/nav-block}}</div>
+<div class="row">
+    <div class="col-4">{{>nav/nav-block}}</div>
+    <div class="container-fluid ">
+        <h1>Samurai Swap Meet</h1>
+    </div>
+</div>
 <div class="bids">
     <div class="row">
 
@@ -16,17 +21,12 @@
                 </div>
             </div>
             <div class="card-body cardCol">
-                <p>Current bid:<span class="waitingForConnection"> &#165;{{dataValues.highestBid}}</span></p>
+                <p>Price:<span class="waitingForConnection"> &#165;{{dataValues.highestBid}}</span></p>
                 <button data-id={{dataValues.id}} name="bid" id="buy" >Buy</button>
             </div>
         </div>
         {{/each}}
-
-
     </div>
     <!--Return to top button-->
     <button onclick="topFunction()" id="homeBtn" class="submit text fText" title="Go to top">Return to Top</button>
 </div>
-<script>
- 
-</script>

@@ -1,22 +1,7 @@
+
 $(document).ready(() => {
 
-  // Return to top button function
-  homebutton = document.getElementById("homeBtn");
-
   $(document).on("click", "#buy", deleteItem);
-
-  // Return to top button function
-  homebutton = document.getElementById("homeBtn");
-
-  window.onscroll = function () { scrollFunction(); };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 900 || document.documentElement.scrollTop > 900) {
-      homebutton.style.display = "block";
-    } else {
-      homebutton.style.display = "none";
-    }
-  }
 
   // Image upload function
   $("#submitUpload").on("click", (event) => {
@@ -37,13 +22,13 @@ $(document).ready(() => {
       cache: false,
       timeout: 600000,
       success: function (response) {
-      // celebrate a bit; the upload succeeded!
+
         alert("Success!!!");
 
         // the back-end sends an object containing the AWS url for the newly-uploaded 
         // file and any additional data sent from the front-end via our AJAX post
         console.log(response);
-
+        windowClose();
         // clear out the form fields for next upload
         $("#uploadForm")[0].reset();
       },
@@ -51,7 +36,17 @@ $(document).ready(() => {
         console.log("error test");
         console.log(err);
       }
-    }); 
-    
+    });
   });
+
+  function deleteItem() {
+    console.log("deleteItem");
+    const id = $(this).data("id");
+    $.ajax({
+      method: "DELETE",
+      url: "/api/items/" + id
+    }).then(() => {
+      location.reload();
+    });
+  }
 });

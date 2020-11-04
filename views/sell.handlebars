@@ -1,4 +1,9 @@
-<div>{{> nav/nav-block}}</div>
+<div class="row">
+    <div class="col-4">{{>nav/nav-block}}</div>
+    <div class="container-fluid ">
+        <h1>Samurai Swap Meet</h1>
+    </div>
+</div>
 <div class="card formCol">
     <div class="card-body cardCol">
         <form action="/sell" method="POST" class="text">
@@ -40,8 +45,8 @@
                 <input type="text" class="form-control" name="highestBid">
             </div>
             <div class="form-group" id="checkbox">
-                <label for="replica">Check below:</label><br>
-                <input type="radio" name="replica" value="1" checked> Replica<br>
+                <label for="replica">Check below</label><br>
+                <input type="radio" name="replica" value="1"> Replica<br>
                 <input type="radio" name="replica" value="0"> Authentic
             </div>
             <div class="buffb">
