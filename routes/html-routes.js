@@ -71,24 +71,19 @@ module.exports = (app) => {
     if (!itemName) {
       errors.push({ text: "Please add a Item Name" });
     }
-    if (!replica) {
-      errors.push({ text: "Please add Replica or Authentic" });
-    }
     if (!descript) {
       errors.push({ text: "Please add a Description" });
     }
     if(!highestBid){
       errors.push({ text: "Please add a Selling Price"});
     }
+    if (!replica) {
+      errors.push({ text: "Please add Replica or Authentic" });
+    }
 
     if (errors.length > 0) {
       res.render("sell", {
-        errors,
-        category, 
-        itemName,  
-        descript, 
-        highestBid 
-
+        errors
       });
     } else {
       db.Item.create({
