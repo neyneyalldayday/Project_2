@@ -113,7 +113,6 @@ module.exports = (app) => {
   // Image uploader
   // post route to handle file upload
   app.post("/upload", async (req, res) => {
-    console.log("TEst");
 
     // Sending error back if no file was uploaded
     if (!req.files) {
@@ -133,12 +132,9 @@ module.exports = (app) => {
     // uploading file to the bucket
     s3.upload(params, (err, response) => {
       if (err) {
-        console.log("upload test");
         throw err;
       }
-
       locLink.push(response.Location);
-      console.log(locLink);
 
       console.log(`File uploaded successfully at ${response.Location}`);
       // terminating the req/res cycle by sending a JSON object with the uploaded
