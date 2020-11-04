@@ -15,7 +15,7 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
-        res.redirect(307, "/api/login");
+        res.redirect("/");
       })
       .catch(() => {
         res.render("/signup");
@@ -41,4 +41,20 @@ module.exports = function(app) {
       });
     }
   });
+
+  // app.delete("/api/bid_items/:id", (req, res) => {
+  //   const chosenItem = req.params.id;
+  //   console.log("chosenItem", chosenItem);
+
+  //   db.Item.destroy({
+  //     highestBid: req.body.highestBid
+  //   },{
+  //     where: { id: chosenItem }
+  //   })
+  //     .then(() => {
+  //       res.redirect("/")
+  //         .catch(err => console.log(err));
+  //     });
+      
+  // });
 };
