@@ -23,7 +23,7 @@ passport.use(new LocalStrategy({
         message: "Incorrect password daddy."
       });
     }
-    console.log("all good")
+    console.log("all good");
     return done(null, dbUser);
   }).catch(err => console.log("err",err));
 })
