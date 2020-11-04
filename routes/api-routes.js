@@ -11,7 +11,6 @@ module.exports = function (app) {
   // eslint-disable-next-line no-empty-function
 
   app.post("/api/signup", (req, res) => {
-    console.log(req.body);
     db.user.create({
       email: req.body.email,
       password: req.body.password
