@@ -165,12 +165,12 @@ module.exports = (app) => {
 
   // Delete row by id
   app.delete("/api/items/:id", (req, res) => {
-    console.log("Here is you id: " + req.params.id);
+    console.log("Here is your id: " + req.params.id);
     db.Item.destroy({
       where: { id: req.params.id }
     })
       .then(() => {
-        res.redirect("/");
+        res.sendStatus(200);       
       })
       .catch(err => console.log(err));
   });

@@ -53,14 +53,18 @@ $(document).ready(() => {
   });
 
   function deleteItem() {
-
+    console.log("deleteItem");
     const id = $(this).data("id");
 
     $.ajax({
       method: "DELETE",
       url: "/api/items/" + id
-    }).then((dbItems) => {
-      res.json(dbItems);
+    }).then(() => {
+      console.log("refresh");
+      location.reload();
+
+      
+      
     });
   }
 
