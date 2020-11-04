@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="card-body cardCol">
-            <p>Current bid:<span class="waitingForConnection"> &#165;{{dataValues.highestBid}}</span></p>
-            <a href="">Bid</a>
+            <p>Price:<span class="waitingForConnection"> &#165;{{dataValues.highestBid}}</span></p>
+            <button data-id={{dataValues.id}} name="bid" id="buy" >Buy</button>
         </div>
     </div>
     {{/each}}
