@@ -46,7 +46,10 @@ Project is created with:
             
 ## License
 *   MIT   
-            
+
+## Deployed app link
+
+*  https://samuraiswapmeet.herokuapp.com/
             
 ## Screenshots:      
 <img width="1680" alt="Screen Shot 2020-11-04 at 2 44 59 PM" src="https://user-images.githubusercontent.com/66277385/98166114-88026a80-1eac-11eb-85e5-1f3ac7f7863e.png">
