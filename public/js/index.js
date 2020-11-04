@@ -63,7 +63,6 @@ $(document).ready(() => {
       method: "DELETE",
       url: "/api/items/" + id
     }).then(() => {
-      console.log("refresh");
       location.reload();
 
       
