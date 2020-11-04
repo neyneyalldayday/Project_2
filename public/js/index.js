@@ -1,5 +1,7 @@
-
 $(document).ready(() => {
+
+  // Return to top button function
+  homebutton = document.getElementById("homeBtn");
 
   $(document).on("click", "#buy", deleteItem);
 
@@ -35,7 +37,7 @@ $(document).ready(() => {
       cache: false,
       timeout: 600000,
       success: function (response) {
-        // celebrate a bit; the upload succeeded!
+      // celebrate a bit; the upload succeeded!
         alert("Success!!!");
 
         // the back-end sends an object containing the AWS url for the newly-uploaded 
@@ -49,7 +51,8 @@ $(document).ready(() => {
         console.log("error test");
         console.log(err);
       }
-    });
+    }); 
+    
   });
 
   function deleteItem() {
