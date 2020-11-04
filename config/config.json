@@ -1,9 +1,10 @@
+
 {
   "development": {
-    "username": "root",
-    "password": "Password1",
-    "database": "bid_items",
-    "host": "127.0.0.1",
+    "username": "jvuvxnlga2i290vc",
+    "password": "jg9klyzcnbb06em9",
+    "database": "s9kl261f5vlj20kr",
+    "host": "q57yawiwmnaw13d2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {

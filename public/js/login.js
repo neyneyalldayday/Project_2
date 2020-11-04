@@ -27,7 +27,6 @@ $(document).ready(() =>{
     if (!userData.email || !userData.password) {
       return;
     }
-    console.log("user email: " + userData.email);
       
     loginUser(userData.email, userData.password);
     emailInput.val("");
