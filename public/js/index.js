@@ -1,8 +1,10 @@
+
 $(document).ready(() => {
+
+  $(document).on("click", "#buy", deleteItem);
 
   // Return to top button function
   homebutton = document.getElementById("homeBtn");
-
 
   window.onscroll = function () { scrollFunction(); };
 
@@ -49,4 +51,17 @@ $(document).ready(() => {
       }
     });
   });
+
+  function deleteItem() {
+
+    const id = $(this).data("id");
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/items/" + id
+    }).then((dbItems) => {
+      res.json(dbItems);
+    });
+  }
+
 });
