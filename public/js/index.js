@@ -3,6 +3,10 @@ $(document).ready(() => {
   // Return to top button function
   homebutton = document.getElementById("homeBtn");
 
+  $(document).on("click", "#buy", deleteItem);
+
+  // Return to top button function
+  homebutton = document.getElementById("homeBtn");
 
   window.onscroll = function () { scrollFunction(); };
 

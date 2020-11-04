@@ -1,6 +1,6 @@
 $(document).ready(() =>{ 
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
+  const emailInput = $("#email-input");
+  const passwordInput = $("#password-input");
   
   function loginUser(email, password) {
     $.post("/api/login", {
@@ -23,11 +23,11 @@ $(document).ready(() =>{
       password: passwordInput.val().trim()
     };
     // const loginForm = $("form.login");       
-        
+    
     if (!userData.email || !userData.password) {
       return;
     }
-    
+    console.log("user email: " + userData.email);
       
     loginUser(userData.email, userData.password);
     emailInput.val("");
