@@ -25,7 +25,7 @@ module.exports = (app) => {
     res.render("sell", res);
   });
 
-
+  //routes to signup form
   app.get("/signup", (req, res) => {
     res.render("signup", res);
   });
@@ -77,17 +77,17 @@ module.exports = (app) => {
     if (!descript) {
       errors.push({ text: "Please add a Description" });
     }
-    if (!highestBid) {
-      errors.push({ text: "Please add a Starting Price" });
+    if(!highestBid){
+      errors.push({ text: "Please add a Selling Price"});
     }
 
     if (errors.length > 0) {
       res.render("sell", {
         errors,
-        category,
-        itemName,
-        descript,
-        highestBid
+        category, 
+        itemName,  
+        descript, 
+        highestBid 
 
       });
     } else {
@@ -103,7 +103,20 @@ module.exports = (app) => {
         .catch(err => console.log(err));
     }
   });
-
+  //Delete/Buy items
+  app.delete("/api/buy", (req, res) => {
+    const chosenItem = $(this).data("id");
+    db.Item.destroy(
+      {
+        where: { id: chosenItem }
+      })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => console.log(err));
+  });
+    
+  //uplaod route
   app.get("/upload", (req, res) => {
     res.render("upload", res);
   });
@@ -142,11 +155,12 @@ module.exports = (app) => {
 
   // Delete row by id
   app.delete("/api/items/:id", (req, res) => {
+    console.log("Here is your id: " + req.params.id);
     db.Item.destroy({
       where: { id: req.params.id }
     })
       .then(() => {
-        res.redirect("/");
+        res.sendStatus(200);       
       })
       .catch(err => console.log(err));
   });
