@@ -142,7 +142,6 @@ module.exports = (app) => {
 
   // Delete row by id
   app.delete("/api/items/:id", (req, res) => {
-    console.log("Here is you id: " + req.params.id);
     db.Item.destroy({
       where: { id: req.params.id }
     })
