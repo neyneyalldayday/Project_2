@@ -3,23 +3,18 @@ const db = require("../models");
 require("dotenv").config();
 const keys = require("./keys");
 
-
-
 // creating s3 instance (to allow uploads)
 const s3 = new AWS.S3({
   accessKeyId: keys.s3key,
   secretAccessKey: keys.s3secret
 });
-
 const locLink = [];
 
 module.exports = (app) => {
-  
+
 
   app.get("/", (req, res) => {
     db.Item.findAll({}).then((dbItems) => {
-      console.log(dbItems);
-      console.log("user", req.user);
       res.render("index", { items: dbItems });
     });
   });
@@ -46,9 +41,8 @@ module.exports = (app) => {
         res.render("searchrender", { items: dbItems });
       })
       .catch(err => console.log(err));
-
-
   });
+
   app.get("/cat", (req, res) => {
     console.log(req.query.category);
 
@@ -154,11 +148,16 @@ module.exports = (app) => {
       res.json({ url: response.Location, data: req.body });
     });
   });
-  
-  
-    
- 
-  
 
-
-}; 
+  // Delete row by id
+  app.delete("/api/items/:id", (req, res) => {
+    console.log("Here is you id: " + req.params.id);
+    db.Item.destroy({
+      where: { id: req.params.id }
+    })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => console.log(err));
+  });
+};
