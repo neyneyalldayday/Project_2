@@ -1,22 +1,7 @@
+
 $(document).ready(() => {
 
-  // Return to top button function
-  homebutton = document.getElementById("homeBtn");
-
   $(document).on("click", "#buy", deleteItem);
-
-  // Return to top button function
-  homebutton = document.getElementById("homeBtn");
-
-  window.onscroll = function () { scrollFunction(); };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 900 || document.documentElement.scrollTop > 900) {
-      homebutton.style.display = "block";
-    } else {
-      homebutton.style.display = "none";
-    }
-  }
 
   // Image upload function
   $("#submitUpload").on("click", (event) => {
@@ -37,7 +22,7 @@ $(document).ready(() => {
       cache: false,
       timeout: 600000,
       success: function (response) {
-  
+
         alert("Success!!!");
 
         // the back-end sends an object containing the AWS url for the newly-uploaded 
@@ -51,8 +36,7 @@ $(document).ready(() => {
         console.log("error test");
         console.log(err);
       }
-    }); 
-    
+    });
   });
 
   function deleteItem() {
@@ -63,10 +47,6 @@ $(document).ready(() => {
       url: "/api/items/" + id
     }).then(() => {
       location.reload();
-
-      
-      
     });
   }
-
 });

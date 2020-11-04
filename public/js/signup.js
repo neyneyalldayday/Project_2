@@ -1,9 +1,10 @@
+
 $(document).ready(() => {
 
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
-  const useDat = [];
+  
 
   signUpForm.on("submit", (event) => {
     event.preventDefault();
@@ -12,7 +13,6 @@ $(document).ready(() => {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-    useDat.push(userData);
     if (!userData.email || !userData.password) {
       return;
     }
@@ -26,7 +26,6 @@ $(document).ready(() => {
       email: email,
       password: password
     })
-
       .then(() => {
         res.redirect("/");
       })
@@ -37,6 +36,4 @@ $(document).ready(() => {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
-  module.exports = useDat;
 });
-

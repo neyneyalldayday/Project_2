@@ -1,7 +1,9 @@
+// const useEmail = require();
+
 $(document).ready(() =>{ 
   const emailInput = $("#email-input");
   const passwordInput = $("#password-input");
-  
+
   function loginUser(email, password) {
     $.post("/api/login", {
       email: email,
@@ -14,8 +16,7 @@ $(document).ready(() =>{
         console.log(err);
       });
   }
-    
-    
+      
   $("#siteLog").on ("submit", event => {
     event.preventDefault();
     const userData = {
@@ -23,7 +24,6 @@ $(document).ready(() =>{
       password: passwordInput.val().trim()
     };
     // const loginForm = $("form.login");       
-    
     if (!userData.email || !userData.password) {
       return;
     }
@@ -33,7 +33,6 @@ $(document).ready(() =>{
     emailInput.val("");
     passwordInput.val("");
   });
-    
     
   function loginUser(email, password) {
     $.post("/api/login", {
