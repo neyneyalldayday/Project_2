@@ -57,8 +57,6 @@ module.exports = (app) => {
         res.render("catSearch", { items: dbItems });
       })
       .catch(err => console.log(err));
-
-
   });
 
   // sell items/ adds items to database and displays errors to page
@@ -104,8 +102,6 @@ module.exports = (app) => {
         .then(() => res.redirect("/"))
         .catch(err => console.log(err));
     }
-
-
   });
   //Delete/Buy items
   app.delete("/api/buy", (req, res) => {
@@ -128,7 +124,6 @@ module.exports = (app) => {
   // Image uploader
   // post route to handle file upload
   app.post("/upload", async (req, res) => {
-    console.log("TEst");
 
     // Sending error back if no file was uploaded
     if (!req.files) {
@@ -148,18 +143,12 @@ module.exports = (app) => {
     // uploading file to the bucket
     s3.upload(params, (err, response) => {
       if (err) {
-        console.log("upload test");
         throw err;
       }
-
       locLink.push(response.Location);
-      console.log(locLink);
 
       console.log(`File uploaded successfully at ${response.Location}`);
-      // terminating the req/res cycle by sending a JSON object with the uploaded
-      // file path AND any date sent along with the upload... this is where you 
-      // could write to your db if needed, now that you have the url path for the
-      // newly uploaded file!
+
       res.json({ url: response.Location, data: req.body });
     });
   });

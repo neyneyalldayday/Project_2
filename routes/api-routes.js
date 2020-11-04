@@ -41,20 +41,4 @@ module.exports = function(app) {
       });
     }
   });
-
-  // app.delete("/api/bid_items/:id", (req, res) => {
-  //   const chosenItem = req.params.id;
-  //   console.log("chosenItem", chosenItem);
-
-  //   db.Item.destroy({
-  //     highestBid: req.body.highestBid
-  //   },{
-  //     where: { id: chosenItem }
-  //   })
-  //     .then(() => {
-  //       res.redirect("/")
-  //         .catch(err => console.log(err));
-  //     });
-      
-  // });
 };
