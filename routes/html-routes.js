@@ -15,26 +15,21 @@ const locLink = [];
 
 module.exports = (app) => {
   
-
+  //Displays all Items
   app.get("/", (req, res) => {
     db.Item.findAll({}).then((dbItems) => {
-      console.log(dbItems);
-      console.log("user", req.user);
       res.render("index", { items: dbItems });
     });
   });
 
+  //routes to sell form
   app.get("/sell", (req, res) => {
     res.render("sell", res);
   });
 
-
+  //routes to signup form
   app.get("/signup", (req, res) => {
     res.render("signup", res);
-  });
-
-  app.get("/bid", (req, res) => {
-    res.render("bid", res);
   });
 
   //Search items by item name
@@ -53,6 +48,8 @@ module.exports = (app) => {
 
 
   });
+
+  //Search items by category
   app.get("/cat", (req, res) => {
     console.log(req.query.category);
 
@@ -115,11 +112,10 @@ module.exports = (app) => {
 
 
   });
-  //Bid on items
-  app.put("/bid", (req, res) => {
-    const chosenItem = req.body.id;
-    db.Item.update(
-      db.Item.highestBid,
+  //Delete/Buy items
+  app.delete("/api/buy", (req, res) => {
+    const chosenItem = $(this).data("id");
+    db.Item.destroy(
       {
         where: { id: chosenItem }
       })
@@ -129,7 +125,7 @@ module.exports = (app) => {
       .catch(err => console.log(err));
   });
     
-
+  //uplaod route
   app.get("/upload", (req, res) => {
     res.render("upload", res);
   });

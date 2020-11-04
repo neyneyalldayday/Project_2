@@ -17,7 +17,7 @@
         </div>
         <div class="card-body cardCol">
             <p>Current bid:<span class="waitingForConnection"> &#165;{{dataValues.highestBid}}</span></p>
-            <a href="/bid/{{this.id}}">Bid</a>
+            <button action="/api/buy" method="DELETE" type="submit" class="submit fText">Buy</button>
         </div>
     </div>
     {{/each}}
