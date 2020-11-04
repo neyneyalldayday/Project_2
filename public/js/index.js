@@ -1,5 +1,7 @@
-
 $(document).ready(() => {
+
+  // Return to top button function
+  homebutton = document.getElementById("homeBtn");
 
   $(document).on("click", "#buy", deleteItem);
 
@@ -49,19 +51,7 @@ $(document).ready(() => {
         console.log("error test");
         console.log(err);
       }
-    });
+    }); 
+    
   });
-
-  function deleteItem() {
-
-    const id = $(this).data("id");
-
-    $.ajax({
-      method: "DELETE",
-      url: "/api/items/" + id
-    }).then((dbItems) => {
-      res.json(dbItems);
-    });
-  }
-
 });

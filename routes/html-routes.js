@@ -1,4 +1,5 @@
 const AWS = require("aws-sdk");
+const isAuthenticated = require("../middleware/isAuthenticated");
 const db = require("../models");
 require("dotenv").config();
 const keys = require("./keys");
@@ -14,12 +15,13 @@ module.exports = (app) => {
 
 
   app.get("/", (req, res) => {
-    db.Item.findAll({}).then((dbItems) => {
+    db.Item.findAll({}).then((dbItems) => {      
+      console.log("user", req.user);
       res.render("index", { items: dbItems });
     });
   });
 
-  app.get("/sell", (req, res) => {
+  app.get("/sell", isAuthenticated, (req, res) => {
     res.render("sell", res);
   });
 

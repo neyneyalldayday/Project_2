@@ -10,13 +10,13 @@ $(document).ready(() =>{
       .then(() => {
         window.location.replace("/index");
       })
-      .catch((err) => {
+      .fail((err) => {
         console.log(err);
       });
   }
     
     
-  $("#siteLog").on ("submit"), event => {
+  $("#siteLog").on ("submit", event => {
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
@@ -32,9 +32,7 @@ $(document).ready(() =>{
     loginUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
-
-    console.log("user email: " + userData.email);
-  };
+  });
     
     
   function loginUser(email, password) {
@@ -43,9 +41,9 @@ $(document).ready(() =>{
       password: password
     })
       .then(() => {
-        res.redirect("/sell");
+        window.location.replace("");
       })
-      .catch((err) => {
+      .fail((err) => {
         console.log(err);
       });
   }
