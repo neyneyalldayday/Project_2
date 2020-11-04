@@ -15,7 +15,6 @@
   },
   "production": {
     "use_env_variable":"JAWS_DB_PROD_URL",
-    "database": "bid_items",
     "dialect": "mysql"
   }
 }
