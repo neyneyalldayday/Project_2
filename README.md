@@ -1,6 +1,6 @@
 # Samurai Swapmeet 
 
-
+<img src =https://img.shields.io/badge/license-MIT-brightgreen alt = "license badge">
 
 ## Description:
 * Samurai Swapmeet is buy/sell apllication where users can post replica or Authectic Samurai Memorabilia. The user can VIEW all items for sell without creating an account and logging in but must be logged in in order to buy and sell items.          
@@ -11,10 +11,7 @@
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Technologies](#technologies)
-            
-            
-## License
-*   ISC      
+
             
 ## Installation
 * Dependencies:
@@ -36,7 +33,7 @@
 
        
 ## Usage
-* User can Create an account and Sell items by filling out the "sell form" and the option to upload an image is also on the form. THe user can also search items by item name or item category in order to buy items.
+* User can Create an account and Sell items by filling out the "sell form" and the option to upload an image is also on the form. The user can also search items by item name or item category in order to buy items.
             
 ## Contributing
 * Pull requests welcome
@@ -45,6 +42,10 @@
 ## Technologies
 Project is created with:
 * Express,JavaScript,Jquery,Html,CSS,MYSQL,Sequelize,Handlebars
+
+            
+## License
+*   MIT   
             
             
 ## Screenshots:      
