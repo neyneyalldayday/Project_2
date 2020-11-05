@@ -61,7 +61,7 @@ module.exports = (app) => {
   app.post("/sell", (req, res) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
     const errors = [];
-    const imageLink = locLink[0];
+    const imageLink = locLink[Array.length - 1];
 
     if (!category) {
       errors.push({ text: "Please add a category" });
