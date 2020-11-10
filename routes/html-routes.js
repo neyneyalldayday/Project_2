@@ -9,7 +9,9 @@ const s3 = new AWS.S3({
   accessKeyId: keys.s3key,
   secretAccessKey: keys.s3secret
 });
-const locLink = [];
+let locLink = [];
+
+
 
 module.exports = (app) => {
 
@@ -62,7 +64,7 @@ module.exports = (app) => {
     const { category, itemName, replica, descript, highestBid } = req.body;
     const errors = [];
     const imageLink = locLink[0];
-
+     
     if (!category) {
       errors.push({ text: "Please add a category" });
     }
@@ -138,6 +140,7 @@ module.exports = (app) => {
       if (err) {
         throw err;
       }
+      locLink = [];
       locLink.push(response.Location);
 
       console.log(`File uploaded successfully at ${response.Location}`);
